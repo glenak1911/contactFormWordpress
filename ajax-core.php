@@ -9,6 +9,11 @@
  * License: GPL2
  */
 
+ function enqueue_dependencies(){
+     wp_enqueue_style( 'core-style', plugins_url('/css/core-style.css', __FILE__), false, '1.0.0', 'all');
+ }
+ add_action('wp_enqueue_scripts', "enqueue_dependencies");
+
 function html_form_code(){
   echo '<form action="' . esc_url( $_SERVER['REQUEST_URI'] ) . '" method="post">';
   	echo '<p>';
@@ -27,7 +32,7 @@ function html_form_code(){
   	echo 'Your Message (required) <br/>';
   	echo '<textarea rows="10" cols="35" name="cf-message" required>' . ( isset( $_POST["cf-message"] ) ? esc_attr( $_POST["cf-message"] ) : '' ) . '</textarea>';
   	echo '</p>';
-  	echo '<p><input class="btn btn-primary" type="submit" name="cf-submitted" value="Send" /><input id="resetMessage" class="btn btn-danger" type="reset" value="Clear" /></p>';
+  	echo '<p><input class="btn btn-plugin" type="submit" name="cf-submitted" value="Send" /><input id="resetMessage" class="btn btn-plugin" type="reset" value="Clear" /></p>';
   	echo '</form>';
 }
 

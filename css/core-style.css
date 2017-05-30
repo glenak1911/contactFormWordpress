@@ -1,0 +1,11 @@
+.btn-plugin{
+  background-color: #000;
+  color: #fff;
+  margin: 5px;
+  -webkit-transition: color .8s ease-in-out; /* Safari */
+  transition: color .8s ease-in-out;
+}
+
+.btn-plugin:hover{
+  color: #e03ecb;
+}
