@@ -15,7 +15,7 @@
  add_action('wp_enqueue_scripts', "enqueue_dependencies");
 
 function html_form_code(){
-  echo '<form action="' . esc_url( $_SERVER['REQUEST_URI'] ) . '" method="post">';
+    echo '<form class="contactForm" action="' . esc_url( $_SERVER['REQUEST_URI'] ) . '" method="post">';
   	echo '<p>';
   	echo 'Your Name (required) <br/>';
   	echo '<input type="text" name="cf-name" value="' . ( isset( $_POST["cf-name"] ) ? esc_attr( $_POST["cf-name"] ) : '' ) . '" size="40" required />';
