@@ -3,6 +3,28 @@
   font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
 }
 
+.confirmationBox{
+  border-left: 5px solid;
+  border-color: #e03ecb;
+  width:30vw;
+  background-color: rgba(237, 144, 225, .2);
+  font-size: 16px;
+  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+  padding: 2px;
+  margin:0px;
+}
+
+.confirmationBox_Error{
+  border-left: 5px solid;
+  border-color: #FF0000;
+  width:30vw;
+  background-color: #ffb2b2;
+  font-size: 16px;
+  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+  padding: 2px;
+  margin:0px;
+}
+
 .btn-plugin{
   background-color: #000;
   color: #fff;

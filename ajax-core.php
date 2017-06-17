@@ -56,11 +56,13 @@ function deliver_mail() {
 
         // If email has been process for sending, display a success message
         if ( wp_mail( $to, $subject, $message, $headers ) ) {
-            echo '<div>';
+            echo '<div class="confirmationBox">';
             echo '<p>Thanks for contacting me, expect a response soon.</p>';
             echo '</div>';
         } else {
-            echo 'An unexpected error occurred';
+          echo '<div class="confirmationBox_Error">';
+          echo '<p>An Unexpected Error Occurred</p>';
+          echo '</div>';
         }
     }
 }
