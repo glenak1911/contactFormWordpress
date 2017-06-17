@@ -32,7 +32,7 @@ function html_form_code(){
   	echo 'Your Message (required) <br/>';
   	echo '<textarea rows="10" cols="35" name="cf-message" required>' . ( isset( $_POST["cf-message"] ) ? esc_attr( $_POST["cf-message"] ) : '' ) . '</textarea>';
   	echo '</p>';
-  	echo '<p><input class="btn btn-plugin" type="submit" name="cf-submitted" value="Send" /><input id="resetMessage" class="btn btn-plugin" type="reset" value="Clear" /></p>';
+  	echo '<input class="btn btn-plugin" type="submit" name="cf-submitted" value="Send" /><button class="btn btn-plugin" name="cf-reset" type="reset">Clear</button>';
   	echo '</form>';
 }
 
