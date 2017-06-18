@@ -11,28 +11,27 @@
 
  function enqueue_dependencies(){
      wp_enqueue_style( 'core-style', plugins_url('/css/core-style.css', __FILE__), false, '1.0.0', 'all');
- }
- add_action('wp_enqueue_scripts', "enqueue_dependencies");
+}
 
 function html_form_code(){
-    echo '<form class="contactForm" action="' . esc_url( $_SERVER['REQUEST_URI'] ) . '" method="post">';
+    echo '<form id="contact-form" class="contactForm" action="' . esc_url( $_SERVER['REQUEST_URI'] ) . '" method="post">';
   	echo '<p>';
   	echo 'Your Name (required) <br/>';
-  	echo '<input class="custom-text" type="text" name="cf-name" value="' . ( isset( $_POST["cf-name"] ) ? esc_attr( $_POST["cf-name"] ) : '' ) . '" size="40" required />';
+  	echo '<input id="cf-name" class="custom-text" type="text" name="cf-name" value="' . ( isset( $_POST["cf-name"] ) ? esc_attr( $_POST["cf-name"] ) : '' ) . '" size="40" required />';
   	echo '</p>';
   	echo '<p>';
   	echo 'Your Email (required) <br/>';
-  	echo '<input class="custom-text" type="email" name="cf-email" value="' . ( isset( $_POST["cf-email"] ) ? esc_attr( $_POST["cf-email"] ) : '' ) . '" size="40" required />';
+  	echo '<input id="cf-email" class="custom-text" type="email" name="cf-email" value="' . ( isset( $_POST["cf-email"] ) ? esc_attr( $_POST["cf-email"] ) : '' ) . '" size="40" required />';
   	echo '</p>';
   	echo '<p>';
   	echo 'Subject (required) <br/>';
-  	echo '<input class="custom-text" type="text" name="cf-subject" value="' . ( isset( $_POST["cf-subject"] ) ? esc_attr( $_POST["cf-subject"] ) : '' ) . '" size="40" required />';
+  	echo '<input id="cf-subject" class="custom-text" type="text" name="cf-subject" value="' . ( isset( $_POST["cf-subject"] ) ? esc_attr( $_POST["cf-subject"] ) : '' ) . '" size="40" required />';
   	echo '</p>';
   	echo '<p>';
   	echo 'Your Message (required) <br/>';
-  	echo '<textarea rows="10" cols="35" name="cf-message" required>' . ( isset( $_POST["cf-message"] ) ? esc_attr( $_POST["cf-message"] ) : '' ) . '</textarea>';
+  	echo '<textarea id="cf-message" rows="10" cols="35" name="cf-message" required>' . ( isset( $_POST["cf-message"] ) ? esc_attr( $_POST["cf-message"] ) : '' ) . '</textarea>';
   	echo '</p>';
-  	echo '<input class="btn btn-plugin" type="submit" name="cf-submitted" value="Send" /><button class="btn btn-plugin" name="cf-reset" type="reset">Clear</button>';
+  	echo '<button class="btn btn-plugin" name="cf-submitted" type="submit">Send</button><button class="btn btn-plugin" name="cf-reset" type="reset">Clear</button>';
   	echo '</form>';
 }
 
@@ -56,8 +55,11 @@ function deliver_mail() {
 
         // If email has been process for sending, display a success message
         if ( wp_mail( $to, $subject, $message, $headers ) ) {
+            $_POST = array();
             echo '<div class="confirmationBox">';
-            echo '<p>Thanks for contacting me, expect a response soon.</p>';
+            echo '<p>Thanks! I\'ll get back to you as soon as possible!</p>';
+            echo '<p class="confirm-Signature">Love,</p>';
+            echo '<p class="confirm-Signature">Yanni xoxo</p>';
             echo '</div>';
         } else {
           echo '<div class="confirmationBox_Error">';
@@ -76,4 +78,5 @@ function cf_shortcode(){
 }
 
 add_shortcode('ajax_contact_form','cf_shortcode');
+add_action('wp_enqueue_scripts', "enqueue_dependencies");
 ?>

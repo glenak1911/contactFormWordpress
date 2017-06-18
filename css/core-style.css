@@ -10,7 +10,7 @@
   background-color: rgba(237, 144, 225, .2);
   font-size: 16px;
   font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
-  padding: 2px;
+  padding: 10px;
   margin:0px;
 }
 
@@ -21,7 +21,7 @@
   background-color: #ffb2b2;
   font-size: 16px;
   font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
-  padding: 2px;
+  padding: 10px;
   margin:0px;
 }
 
@@ -35,6 +35,10 @@
 
 .btn-plugin:hover{
   color: #e03ecb;
+}
+
+.confirm-Signature{
+  text-align: right;
 }
 
 @media screen and (max-width: 767px){
